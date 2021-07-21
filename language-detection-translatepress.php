@@ -19,8 +19,8 @@ defined( 'ABSPATH' ) or die;
 
 define( 'LDT_DIR', plugin_dir_path( __FILE__ ) );
 
-add_action( 'init', 'wpdocs_load_textdomain' );
-function wpdocs_load_textdomain() {
+add_action( 'init', 'ldt_load_textdomain' );
+function ldt_load_textdomain() {
   load_plugin_textdomain( 'language-detection-translatepress', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
 }
 
