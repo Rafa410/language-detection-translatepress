@@ -1,0 +1,57 @@
+#language-switcher {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    max-height: 0;
+    opacity: 0;
+    text-align: center;
+    background: #353535;
+    color: #fff;
+    z-index: 999;
+    transition: all 1s ease-in-out;
+}
+#language-switcher .grid-container {
+    padding: 1rem;
+}
+#language-switcher .grid-container img, #language-switcher .grid-container span, #language-switcher .grid-container svg {
+    vertical-align: middle;
+}
+#language-switcher .grid-container span {
+    padding: 5px;
+}
+#language-switcher .grid-container > svg {
+    padding: 6px;
+    margin: 0 3px;
+    vertical-align: middle;
+    cursor: pointer;
+    box-shadow: 0 6px 10px -10px;
+    transition: box-shadow 0.3s ease-in-out;    
+}
+#language-switcher .grid-container > svg:hover {
+    box-shadow: 0 6px 10px -5px;
+}
+.show-language-switcher #language-switcher {
+    display: block;
+    max-height: 100px;
+    opacity: 1;
+}
+.main-navigation { /* TODO: Not all templates have this class */
+    transition: margin-top 1s ease-in-out;
+}
+.show-language-switcher .main-navigation {
+    margin-top: 4rem;
+}
+
+@media only screen AND (max-width: 767px) {
+	#language-switcher {
+        top: auto;
+        bottom: 0;
+    }
+    .show-language-switcher .main-navigation {
+        margin-top: 0;
+    }
+}
