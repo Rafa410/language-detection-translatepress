@@ -18,14 +18,11 @@
 defined( 'ABSPATH' ) or die;
 
 define( 'LDT_DIR', plugin_dir_path( __FILE__ ) );
+define( 'LDT_VERSION' , '1.0.0');
 
-add_action( 'init', 'ldt_load_textdomain' );
-function ldt_load_textdomain() {
-  load_plugin_textdomain( 'language-detection-translatepress', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
-}
+require_once LDT_DIR . 'includes/class-ldt-main.php';
 
-if ( is_admin() ) {
-    require_once LDT_DIR . 'admin/language-detection-translatepress-admin.php';
-} else {
-    require_once LDT_DIR . 'includes/main.php';
+function run_ldt() {
+  $ldt = new LDT_Main();
 }
+run_ldt();
