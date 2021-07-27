@@ -11,7 +11,7 @@
     text-align: center;
     background: #353535;
     color: #fff;
-    z-index: 999;
+    z-index: 99999999;
     transition: all 1s ease-in-out;
 }
 #language-switcher .grid-container {
