@@ -19,27 +19,39 @@
         }
     }
 
-    const switchLang = document.getElementById('switch-language');
-    switchLang.addEventListener('click', () => {
-        setCookie('lang', userLang, DAYS);
-        redirectToLanguage(userLang);
-    });
-    
-    const closeLangSwitcher = document.getElementById('close-language-switcher');
-    closeLangSwitcher.addEventListener('click', () => {
-        document.body.classList.remove('show-language-switcher');
-        setCookie('lang', currentLang, DAYS);
-    })
+    docReady(attachEvents);
 
-    const langList = document.querySelectorAll("#trp-floater-ls-language-list a");
-    for (lang of langList) {
-        lang.addEventListener('click', function(event) {
-            event.preventDefault();
-            setCookie('lang', supportedLangs[this.innerText], DAYS);
-            window.location.href = this.href;
-        })
+    function docReady(fn) {
+        // see if DOM is already available
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setTimeout(fn, 1); // call on next available tick
+        } else {
+            document.addEventListener('DOMContentLoaded', fn);
+        }
     }
+    
+    function attachEvents() {
+        const switchLang = document.getElementById('switch-language');
+        switchLang.addEventListener('click', () => {
+            setCookie('lang', userLang, DAYS);
+            redirectToLanguage(userLang);
+        });
+        
+        const closeLangSwitcher = document.getElementById('close-language-switcher');
+        closeLangSwitcher.addEventListener('click', () => {
+            document.body.classList.remove('show-language-switcher');
+            setCookie('lang', currentLang, DAYS);
+        })
 
+        const langList = document.querySelectorAll("#trp-floater-ls-language-list a");
+        for (lang of langList) {
+            lang.addEventListener('click', function(event) {
+                event.preventDefault();
+                setCookie('lang', supportedLangs[this.innerText], DAYS);
+                window.location.href = this.href;
+            })
+        }
+    }
 
     function getCurrentLang() {
         let currentLang = url.pathname.split('/')[1];

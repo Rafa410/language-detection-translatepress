@@ -16,7 +16,7 @@ class LDT_Main {
     }
 
     private function load_dependencies() {
-        
+
     }
 
     private function set_locale() {
@@ -38,7 +38,7 @@ class LDT_Main {
     }
 
     public function enqueue_scripts() {
-        wp_enqueue_script( 'language-detection-translatepress-script', plugins_url( 'public/js/ldt-scripts.js', __DIR__ ), array(), $this->get_version(), true );
+        wp_enqueue_script( 'language-detection-translatepress-script', plugins_url( 'public/js/ldt-scripts.js', __DIR__ ), array(), $this->get_version() );
     }
 
     public function get_version() {
