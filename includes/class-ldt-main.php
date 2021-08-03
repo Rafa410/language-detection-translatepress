@@ -28,8 +28,8 @@ class LDT_Main {
     }
 
     private function add_public_hooks() {
+        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
-        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
         add_action( 'wp_body_open', array( $this, 'generate_language_switcher' ) );
     }
 
