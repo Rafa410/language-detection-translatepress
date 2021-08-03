@@ -15,7 +15,7 @@
         }
     } else {
         if (currentLang != userLang) {
-            displayLanguageSwitcher();
+            docReady(displayLanguageSwitcher);
         }
     }
 
